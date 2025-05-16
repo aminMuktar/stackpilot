@@ -1,0 +1,23 @@
+/bin/
+/build/
+/dist/
+*.exe
+*.test
+*.out
+
+# Dependency files (handled by Go modules)
+vendor/
+
+# Env/config files
+.env
+.env.*
+
+# Log files
+*.log
+
+
+# Coverage/test output
+coverage.out
+
+logs/
+
