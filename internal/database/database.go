@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/aminMuktar/stackpilot/internal/logger"
+	"github.com/aminMuktar/stackpilot/internal/models"
 	"go.uber.org/zap"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -32,4 +33,14 @@ func Init() {
 
 	logger.Log.Info("Database connection established")
 	DB = db
+	if err := db.AutoMigrate(
+		&models.User{},
+		// &models.Tenant{},
+		// &models.Role{},
+		// &models.Permission{},
+		// Add other models here
+	); err != nil {
+		logger.Log.Fatal("Auto migration failed", zap.Error(err))
+	}
+
 }
